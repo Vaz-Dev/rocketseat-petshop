@@ -1,0 +1,149 @@
+/* Colors */
+:root {
+    /* Content */
+    --content-primary: #FFFFFF;
+    --content-secondary: #98959D;
+    --content-tertiary: #666666;
+    --content-brand: #9282FA;
+    /* Background */
+    --background-primary: #151515;
+    --background-secondary: #1E1E1E;
+    --background-tertiary: #23242C;
+    --background-brand: #9282FA;
+    --background-highlights: #BDB4FA;
+    /* Border */
+    --border-primary: #3E3C41;
+    --border-secondary: #86818C;
+    --border-divisor: #353339;
+    --border-brand: #9282FA;
+    /* Accent */
+    --accent-blue: #027DF0;
+    --accent-blue-light: #16487A;
+    --accent-yellow: #F0DC02;
+    --accent-yellow-light: #756E1B;
+    --accent-orange: #F09102;
+    --accent-orange-light: #75501B;
+}
+
+/* Typography */
+    /* Low Priority Default */
+    body {
+        font-family: "Inter", sans-serif;
+        color: var(--content-primary);
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 500;
+        text-transform: inherit;
+    }
+.title, h1 {
+    font-family: "Inter Tight", sans-serif;
+    color: var(--content-primary);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    text-transform: inherit;
+}
+.paragraph-medium, p {
+    font-family: "Inter", sans-serif;
+    color: var(--content-secondary);
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    text-transform: inherit;
+}
+.paragraph-small, p.small {
+    font-family: "Inter", sans-serif;
+    color: var(--content-secondary);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    text-transform: inherit;
+}
+.label-large, label.large, h2 {
+    font-family: "Inter", sans-serif;
+    color: var(--content-primary);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    text-transform: inherit;
+}
+.label-medium, label, h3 {
+    font-family: "Inter", sans-serif;
+    color: var(--content-primary);
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    text-transform: inherit;
+}
+.label-small, label.small, h4 {
+    font-family: "Inter", sans-serif;
+    color: var(--content-primary);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: inherit;
+}
+.link, a {
+    font-family: "Inter", sans-serif;
+    color: var(--content-tertiary);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    text-transform: inherit;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+.link:hover, a:hover {
+    color: var(--content-primary);
+    text-decoration: underline;
+}
+
+/* Components */
+
+button{
+    border: none;
+    padding: 12px 20px;
+    font-family: "Inter", sans-serif;
+    color: var(--background-primary);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    background: var(--content-brand);
+    transition: all 0.4s ease;
+    box-shadow: 0px 0px 25px 15px var(--content-brand);
+}
+button:hover {
+
+    background: #BDB4FA;
+}
+/* TODO: Add inner box-shadow */
+button:active { 
+
+}
+
+ul{
+
+}
+li {
+
+}
+
+.inputWrapper, textarea {
+    padding: 12px;
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    color: var(--content-secondary);
+    min-height: 48px;
+    width: 100%;
+    max-width: 373px;
+}
+.inputWrapper:hover, textarea:hover {
+    border-color: var(--border-secondary);
+}
+.inputWrapper:focus-within, textarea:focus {
+    border-color: var(--border-brand);
+    color: var(--content-primary);
+}
+
+
