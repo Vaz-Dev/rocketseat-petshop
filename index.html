@@ -9,6 +9,193 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    Teste
+    <header>
+        <img src="./src/assets/logo.png">
+    </header>
+    <main>
+        <header>
+            <div id="MainTitleWrapper">
+                <h1>Sua agenda</h1>
+                <p>Aqui você pode ver todos os clientes e serviços agendados para hoje.</p> 
+            </div>
+            <div class="input-wrapper">
+                <img src="./src/assets/icons/calendar.svg">
+                <input type="date">
+            </div>
+        </header>
+        <div id="sectionsWrapper">
+            <section>
+                <header>
+                    <div>
+                        <img src="./src/assets/icons/morning-section.svg">
+                        <label class="large section-title-label">
+                            Manhã
+                        </label>
+                    </div>
+                    <label class="large section-time-label">
+                        09h-12h
+                    </label>
+                </header>
+                <ul id="MorningList">
+                    <li>
+                        <label>09:00</label>
+                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
+                        <p class="grow small">Vacinação</p>
+                        <p class="remove small">Remover agendamento</p>
+                    </li>
+                    <li>
+                        <label>09:00</label>
+                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
+                        <p class="grow small">Vacinação</p>
+                        <p class="remove small">Remover agendamento</p>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <header>
+                    <div>
+                        <img src="./src/assets/icons/day-section.svg">
+                        <label class="large section-title-label">
+                            Tarde
+                        </label>
+                    </div>
+                    <label class="large section-time-label">
+                        13h-18h
+                    </label>
+                </header>
+                <ul id="DayList">
+                    <li>
+                        <label>09:00</label>
+                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
+                        <p class="grow small">Vacinação</p>
+                        <p class="remove small">Remover agendamento</p>
+                    </li>
+                    <li>
+                        <label>09:00</label>
+                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
+                        <p class="grow small">Vacinação</p>
+                        <p class="remove small">Remover agendamento</p>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <header>
+                    <div>
+                        <img src="./src/assets/icons/night-section.svg">
+                        <label class="large section-title-label">
+                            Noite
+                        </label>
+                    </div>
+                    <label class="large section-time-label">
+                        19h-21h
+                    </label>
+                </header>
+                <ul id="NightList">
+                    <li>
+                        <label>09:00</label>
+                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
+                        <p class="grow small">Vacinação</p>
+                        <p class="remove small">Remover agendamento</p>
+                    </li>
+                    <li>
+                        <label>09:00</label>
+                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
+                        <p class="grow small">Vacinação</p>
+                        <p class="remove small">Remover agendamento</p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <footer>
+            <button onclick="form.toggle()">
+                NOVO AGENDAMENTO
+            </button>
+        </footer>
+    </main>
+    <div id="formWrapper" class="hidden">
+        <form>
+            <div>
+                <h1>
+                    Agende um atendimento
+                </h1>
+                <p>
+                    Preencha os dados do cliente para realizar o agendamento:
+                </p>
+            </div>
+            <div>
+                <label>
+                    Nome do tutor
+                </label>
+                <div class="input-wrapper">
+                    <img src="./src/assets/icons/user.svg">
+                    <input type="text" id="ownerInput">
+                </div>
+            </div>
+            <div>
+                <label>
+                    Nome do pet
+                </label>
+                <div class="input-wrapper">
+                    <img src="./src/assets/icons/paw.svg">
+                    <input type="text" id="petInput">
+                </div>
+            </div>
+            <div>
+                <label>
+                    Telefone
+                </label>
+                <div class="input-wrapper">
+                    <img src="./src/assets/icons/phone.svg">
+                    <input type="tel" id="phoneInput">
+                </div>
+            </div>
+            <div>
+                <label>
+                    Descrição do serviço
+                </label>
+                <div class="input-wrapper">
+                    <textarea id="descInput"></textarea>
+                </div>
+            </div>
+            <div id="dateTimeWrapper">
+                <div>
+                    <label>
+                        Data
+                    </label>
+                    <div class="input-wrapper">
+                        <img src="./src/assets/icons/calendar.svg">
+                        <input type="date" id="dateInput">
+                    </div>
+                </div>
+                <div>
+                    <label>
+                        Hora
+                    </label>
+                    <div class="input-wrapper">
+                        <img src="./src/assets/icons/clock.svg">
+                        <select type="select" id="timeInput">
+                            <option value="8">9:00</option>
+                            <option value="9">10:00</option>
+                            <option value="10">11:00</option>
+                            <option value="11">12:00</option>
+                            <option value="12">13:00</option>
+                            <option value="13">14:00</option>
+                            <option value="14">15:00</option>
+                            <option value="15">16:00</option>
+                            <option value="16">17:00</option>
+                            <option value="17">18:00</option>
+                            <option value="18">19:00</option>
+                            <option value="19">20:00</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button>
+                    AGENDAR
+                </button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

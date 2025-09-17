@@ -1,14 +1,16 @@
 import dayjs from "dayjs"
-import { apiConfig } from "./api-config"
+import { apiConfig } from "../services/api-config"
 
 export default {
 
-    workingHours: {
-        opening: 9,
-        closing: 21
-    },
+    
     
     Schedule: class {
+
+        static workingHours = {
+                opening: 9,
+                closing: 21
+            }
 
         /**
          * Do not use directly, use postSchedule() instead.
@@ -25,15 +27,15 @@ export default {
 
                 if (typeof owner !== 'string') { throw new Error('Dado com tipo inválido: tutor do pet (new petshop.Schedule(owner))') }
                 if (owner.length < 3 || owner.length > 30) { throw new Error('Dado com tamanho inválido: tutor do pet (new petshop.Schedule(owner))') }
-                this.owner = this.capitalize(owner.trim())
+                this.owner = Schedule.capitalize(owner.trim())
 
                 if (typeof pet !== 'string') { throw new Error('Dado com tipo inválido: nome do pet (new petshop.Schedule(pet))') }
                 if (pet.length < 3 || pet.length > 30) { throw new Error('Dado com tamanho inválido: nome do pet (new petshop.Schedule(pet))') }
-                this.pet = this.capitalize(pet.trim())
+                this.pet = Schedule.capitalize(pet.trim())
 
                 if (typeof phone !== 'string') { throw new Error('Dado com tipo inválido: Telefone (new petshop.Schedule(phone))') }
                 if (phone.length < 8 || phone.length > 30) { throw new Error('Dado com tamanho inválido: Telefone (new petshop.Schedule(phone))') }
-                if (!this.constructor.phoneRegex.test(phone)) { throw new Error('Dado com caractere(s) inválido(s): Telefone (new petshop.Schedule(phone))') }
+                if (!Schedule.phoneRegex.test(phone)) { throw new Error('Dado com caractere(s) inválido(s): Telefone (new petshop.Schedule(phone))') }
                 this.phone = phone.trim()
 
                 if (typeof desc !== 'string') { throw new Error('Dado com tipo inválido: Descrição (new petshop.Schedule(desc))') }
@@ -42,6 +44,9 @@ export default {
 
                 if (typeof id !== 'number') { throw new Error ('Dado com tipo inválido: Id (new petshop.Schedule(id))') }
                 if (id < 999999999999) { throw new Error('Dado com tamanho inválido: Id (new petshop.Schedule(id))') }
+                if (dayjs(id).hour() < Schedule.workingHours.opening || dayjs(id).hour() >= Schedule.workingHours.closing) {
+                    throw new Error('Dado com valor inválido: Id (new petshop.Schedule(id))')
+                }
                 this.id = String(id)
 
             } catch(error) {
@@ -51,7 +56,7 @@ export default {
 
         }
 
-        capitalize(str) {
+        static capitalize(str) {
             return str.split(' ').map(word => {
                 return word.charAt(0).toUpperCase() + word.slice(1);
             }).join(' ');
@@ -125,6 +130,35 @@ export default {
         } catch(error) {
             alert(error)
             console.log(error)
+        }
+    },
+
+    /**
+     * Organizes an array of schedules into an object containing three new arrays, once for each work period.
+     * * @param {Object[]} scheduleArray An array of schedules, intended to receive a resolved promise from getSchedule(x,y)
+     * @returns {{morning: Object[], day: Object[], night: Object[]}}
+     */
+    organizeSchedules( scheduleArray ) {
+        const morningArray = [];
+        const dayArray = [];
+        const nightArray = [];
+
+        scheduleArray.forEach((schedule) => {
+            const hour = dayjs(Number(schedule.id)).hour();
+            
+            if (hour >= 8 && hour < 12) {
+                morningArray.push(schedule);
+            } else if (hour >= 12 && hour < 18) {
+                dayArray.push(schedule);
+            } else if (hour >= 18 && hour < 20) {
+                nightArray.push(schedule);
+            }
+        });
+
+        return {
+            morning: morningArray,
+            day: dayArray,
+            night: nightArray
         }
     }
 }

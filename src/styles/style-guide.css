@@ -75,7 +75,7 @@
     font-weight: 700;
     text-transform: inherit;
 }
-.label-small, label.small, h4 {
+.label-small, label.small, h4, span {
     font-family: "Inter", sans-serif;
     color: var(--content-primary);
     font-size: 12px;
@@ -103,6 +103,7 @@
 button{
     border: none;
     padding: 12px 20px;
+    border-radius: 8px;
     font-family: "Inter", sans-serif;
     color: var(--background-primary);
     font-size: 16px;
@@ -110,40 +111,81 @@ button{
     font-weight: 700;
     background: var(--content-brand);
     transition: all 0.4s ease;
-    box-shadow: 0px 0px 25px 15px var(--content-brand);
+    box-shadow: 0px 0px 18px 4px #9282FA33;
+    cursor: pointer;
 }
 button:hover {
 
     background: #BDB4FA;
-}
-/* TODO: Add inner box-shadow */
-button:active { 
-
+    box-shadow: 0px 0px 24px 4px #BDB4FA66;
 }
 
-ul{
-
+section {
+    background: var(--background-tertiary);
+    border-radius: 12px;
+}
+section > header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+section > header > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+ul {
+    padding: 20px;
 }
 li {
-
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-primary);
+    gap: 16px;
+}
+li:last-child {
+    border-bottom: none
+}
+.grow {
+    flex-grow: 999;
 }
 
-.inputWrapper, textarea {
+.input-wrapper {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.input-wrapper {
     padding: 12px;
     border: 1px solid var(--border-primary);
     border-radius: 8px;
     transition: all 0.4s ease;
     color: var(--content-secondary);
-    min-height: 48px;
-    width: 100%;
     max-width: 373px;
 }
-.inputWrapper:hover, textarea:hover {
+.input-wrapper:hover, textarea:hover {
     border-color: var(--border-secondary);
 }
-.inputWrapper:focus-within, textarea:focus {
+.input-wrapper:focus-within, textarea:focus {
     border-color: var(--border-brand);
     color: var(--content-primary);
+}
+input,textarea, select {
+    color: var(--content-secondary)
+}
+
+.remove {
+    color: var(--content-tertiary) !important;
+    transition: 0.4s ease all;
+    cursor: pointer;
+}
+.remove:hover {
+    color: var(--content-primary) !important;
+    text-decoration: underline;
 }
 
 

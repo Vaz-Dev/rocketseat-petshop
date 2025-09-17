@@ -4,9 +4,10 @@ import "./styles/rules.css"
 import "./styles/style-guide.css"
 import "./styles/core.css"
 
-import "./services/petshop.js"
 import "./services/api-config.js"
-
 import "./libs/dayjs.js"
+import data from "./modules/data.js"
+import form from "./modules/form.js"
 import dayjs from "dayjs"
-import petshop from "./services/petshop.js"
+
+window.form = form;

@@ -46,3 +46,27 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+textarea, input, select {
+	background: none;
+    border: none;
+	outline: none;
+	resize: none;
+	flex-grow: 999;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+	position: absolute;
+    opacity: 0;
+	width: 100%;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+	position: absolute;
+    opacity: 0;
+	width: 100%;
+}
+
+/* Scroll Rules */
+body, html {
+    width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
