@@ -6,6 +6,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
+    width: 100%;
     max-width: 871px;
     gap: 32px;
     padding: 62px 80px;
@@ -28,6 +29,7 @@ footer > button {
 main > header {
     display: flex;
     align-items: center;
+    gap: 32px;
 }
 #MainTitleWrapper {
     display: flex;
@@ -60,6 +62,7 @@ main > header .input-wrapper {
     align-items: center;
 }
 form {
+    position: relative;
     background: var(--background-tertiary);
     display: flex;
     flex-direction: column;
@@ -74,4 +77,17 @@ form {
 }
 #dateTimeWrapper div {
     flex-grow: 1;
+}
+#form-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    filter: brightness(10);
+    transition: all 0.4s;
+    cursor: pointer;
+}
+#form-close:hover {
+    filter: brightness(1);
 }

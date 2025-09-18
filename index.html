@@ -20,7 +20,7 @@
             </div>
             <div class="input-wrapper">
                 <img src="./src/assets/icons/calendar.svg">
-                <input type="date">
+                <input type="date" id="viewDate">
             </div>
         </header>
         <div id="sectionsWrapper">
@@ -36,19 +36,7 @@
                         09h-12h
                     </label>
                 </header>
-                <ul id="MorningList">
-                    <li>
-                        <label>09:00</label>
-                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
-                        <p class="grow small">Vacinação</p>
-                        <p class="remove small">Remover agendamento</p>
-                    </li>
-                    <li>
-                        <label>09:00</label>
-                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
-                        <p class="grow small">Vacinação</p>
-                        <p class="remove small">Remover agendamento</p>
-                    </li>
+                <ul id="morningList">
                 </ul>
             </section>
             <section>
@@ -63,19 +51,7 @@
                         13h-18h
                     </label>
                 </header>
-                <ul id="DayList">
-                    <li>
-                        <label>09:00</label>
-                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
-                        <p class="grow small">Vacinação</p>
-                        <p class="remove small">Remover agendamento</p>
-                    </li>
-                    <li>
-                        <label>09:00</label>
-                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
-                        <p class="grow small">Vacinação</p>
-                        <p class="remove small">Remover agendamento</p>
-                    </li>
+                <ul id="dayList">
                 </ul>
             </section>
             <section>
@@ -90,30 +66,25 @@
                         19h-21h
                     </label>
                 </header>
-                <ul id="NightList">
-                    <li>
+                <ul id="nightList">
+                    <!-- <li>
                         <label>09:00</label>
                         <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
                         <p class="grow small">Vacinação</p>
                         <p class="remove small">Remover agendamento</p>
-                    </li>
-                    <li>
-                        <label>09:00</label>
-                        <p class="grow small"><span>Thor</span> / Fernanda Costa</p>
-                        <p class="grow small">Vacinação</p>
-                        <p class="remove small">Remover agendamento</p>
-                    </li>
+                    </li> -->
                 </ul>
             </section>
         </div>
         <footer>
-            <button onclick="form.toggle()">
+            <button>
                 NOVO AGENDAMENTO
             </button>
         </footer>
     </main>
     <div id="formWrapper" class="hidden">
         <form>
+            <img src="./src/assets/icons/close.svg" id="form-close">
             <div>
                 <h1>
                     Agende um atendimento
@@ -128,7 +99,7 @@
                 </label>
                 <div class="input-wrapper">
                     <img src="./src/assets/icons/user.svg">
-                    <input type="text" id="ownerInput">
+                    <input required type="text" id="ownerInput">
                 </div>
             </div>
             <div>
@@ -137,7 +108,7 @@
                 </label>
                 <div class="input-wrapper">
                     <img src="./src/assets/icons/paw.svg">
-                    <input type="text" id="petInput">
+                    <input required type="text" id="petInput">
                 </div>
             </div>
             <div>
@@ -146,7 +117,7 @@
                 </label>
                 <div class="input-wrapper">
                     <img src="./src/assets/icons/phone.svg">
-                    <input type="tel" id="phoneInput">
+                    <input required type="tel" id="phoneInput">
                 </div>
             </div>
             <div>
@@ -154,7 +125,7 @@
                     Descrição do serviço
                 </label>
                 <div class="input-wrapper">
-                    <textarea id="descInput"></textarea>
+                    <textarea required id="descInput"></textarea>
                 </div>
             </div>
             <div id="dateTimeWrapper">
@@ -164,7 +135,7 @@
                     </label>
                     <div class="input-wrapper">
                         <img src="./src/assets/icons/calendar.svg">
-                        <input type="date" id="dateInput">
+                        <input required type="date" id="dateInput">
                     </div>
                 </div>
                 <div>
@@ -173,20 +144,7 @@
                     </label>
                     <div class="input-wrapper">
                         <img src="./src/assets/icons/clock.svg">
-                        <select type="select" id="timeInput">
-                            <option value="8">9:00</option>
-                            <option value="9">10:00</option>
-                            <option value="10">11:00</option>
-                            <option value="11">12:00</option>
-                            <option value="12">13:00</option>
-                            <option value="13">14:00</option>
-                            <option value="14">15:00</option>
-                            <option value="15">16:00</option>
-                            <option value="16">17:00</option>
-                            <option value="17">18:00</option>
-                            <option value="18">19:00</option>
-                            <option value="19">20:00</option>
-                        </select>
+                        <input required type="time" id="timeInput">
                     </div>
                 </div>
             </div>

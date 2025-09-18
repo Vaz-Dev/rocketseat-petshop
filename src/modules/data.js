@@ -23,37 +23,29 @@ export default {
          */
         constructor (owner,pet,phone,desc,id) {
 
-            try {
+            if (typeof owner !== 'string') { throw new Error('Dado com tipo inválido: tutor do pet') }
+            if (owner.length < 3 || owner.length > 30) { throw new Error('Dado com tamanho inválido: tutor do pet') }
+            this.owner = this.constructor.capitalize(owner.trim())
 
-                if (typeof owner !== 'string') { throw new Error('Dado com tipo inválido: tutor do pet (new petshop.Schedule(owner))') }
-                if (owner.length < 3 || owner.length > 30) { throw new Error('Dado com tamanho inválido: tutor do pet (new petshop.Schedule(owner))') }
-                this.owner = Schedule.capitalize(owner.trim())
+            if (typeof pet !== 'string') { throw new Error('Dado com tipo inválido: nome do pet') }
+            if (pet.length < 3 || pet.length > 30) { throw new Error('Dado com tamanho inválido: nome do pet') }
+            this.pet = this.constructor.capitalize(pet.trim())
 
-                if (typeof pet !== 'string') { throw new Error('Dado com tipo inválido: nome do pet (new petshop.Schedule(pet))') }
-                if (pet.length < 3 || pet.length > 30) { throw new Error('Dado com tamanho inválido: nome do pet (new petshop.Schedule(pet))') }
-                this.pet = Schedule.capitalize(pet.trim())
+            if (typeof phone !== 'string') { throw new Error('Dado com tipo inválido: Telefone') }
+            if (phone.length < 8 || phone.length > 30) { throw new Error('Dado com tamanho inválido: Telefone') }
+            if (!this.constructor.phoneRegex.test(phone)) { throw new Error('Dado com caractere(s) inválido(s): Telefone') }
+            this.phone = phone.trim()
 
-                if (typeof phone !== 'string') { throw new Error('Dado com tipo inválido: Telefone (new petshop.Schedule(phone))') }
-                if (phone.length < 8 || phone.length > 30) { throw new Error('Dado com tamanho inválido: Telefone (new petshop.Schedule(phone))') }
-                if (!Schedule.phoneRegex.test(phone)) { throw new Error('Dado com caractere(s) inválido(s): Telefone (new petshop.Schedule(phone))') }
-                this.phone = phone.trim()
+            if (typeof desc !== 'string') { throw new Error('Dado com tipo inválido: Descrição') }
+            if (desc.length < 4 || desc.length > 200) { throw new Error('Dado com tamanho inválido: Descrição') }
+            this.desc = desc.trim()
 
-                if (typeof desc !== 'string') { throw new Error('Dado com tipo inválido: Descrição (new petshop.Schedule(desc))') }
-                if (desc.length < 4 || desc.length > 200) { throw new Error('Dado com tamanho inválido: Descrição (new petshop.Schedule(desc))') }
-                this.desc = desc.trim()
-
-                if (typeof id !== 'number') { throw new Error ('Dado com tipo inválido: Id (new petshop.Schedule(id))') }
-                if (id < 999999999999) { throw new Error('Dado com tamanho inválido: Id (new petshop.Schedule(id))') }
-                if (dayjs(id).hour() < Schedule.workingHours.opening || dayjs(id).hour() >= Schedule.workingHours.closing) {
-                    throw new Error('Dado com valor inválido: Id (new petshop.Schedule(id))')
-                }
-                this.id = String(id)
-
-            } catch(error) {
-                alert(error)
-                console.log(error)
+            if (typeof id !== 'number') { throw new Error ('Dado com tipo inválido: Id') }
+            if (id < 999999999999) { throw new Error('Dado com tamanho inválido: Id') }
+            if (dayjs(id).hour() < this.constructor.workingHours.opening || dayjs(id).hour() >= this.constructor.workingHours.closing) {
+                throw new Error('Dado com valor inválido: Id / Escolha um horário válido, não é permitido agendar fora do horário de atendimento.')
             }
-
+            this.id = String(id)
         }
 
         static capitalize(str) {
