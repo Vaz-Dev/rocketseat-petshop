@@ -35,7 +35,7 @@ export default {
             const item = document.createElement("li")
             item.setAttribute('data-id',schedule.id)
             item.innerHTML = `
-                <label>${dayjs(Number(schedule.id)).hour()}:00</label>
+                <label>${dayjs(Number(schedule.id)).format("HH:mm")}</label>
                 <p class="grow small"><span>${schedule.pet}</span> / ${schedule.owner}</p>
                 <p class="grow small">${schedule.desc}</p>
                 <p class="remove small">Remover agendamento</p>
@@ -46,7 +46,7 @@ export default {
             const item = document.createElement("li")
             item.setAttribute('data-id',schedule.id)
             item.innerHTML = `
-                <label>${dayjs(Number(schedule.id)).hour()}:00</label>
+                <label>${dayjs(Number(schedule.id)).format("HH:mm")}</label>
                 <p class="grow small"><span>${schedule.pet}</span> / ${schedule.owner}</p>
                 <p class="grow small">${schedule.desc}</p>
                 <p class="remove small">Remover agendamento</p>
@@ -57,16 +57,16 @@ export default {
             const item = document.createElement("li")
             item.setAttribute('data-id',schedule.id)
             item.innerHTML = `
-                <label>${dayjs(Number(schedule.id)).hour()}:00</label>
+                <label>${dayjs(Number(schedule.id)).format("HH:mm")}</label>
                 <p class="grow small"><span>${schedule.pet}</span> / ${schedule.owner}</p>
                 <p class="grow small">${schedule.desc}</p>
                 <p class="remove small">Remover agendamento</p>
             `
             this.nightList.append(item)
         }
-        this.readyRemoves()
+        this.readyRemovers()
     },
-    readyRemoves(){
+    readyRemovers(){
         const allRemoves = document.querySelectorAll(".remove")
         for (const remove of allRemoves){
             remove.addEventListener("click",(event) => {
